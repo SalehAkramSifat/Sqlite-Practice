@@ -37,6 +37,11 @@ class DatabaseHelper {
     print('Database Notes: $result');
     return result;
   }
+  Future<void> deleteNote(int id) async {
+    final db = await database;
+    await db.delete('notes', where: "id = ?", whereArgs: [id]);
+    print('Deleted Note with ID: $id');
+  }
 
 
 }
