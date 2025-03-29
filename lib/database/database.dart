@@ -25,6 +25,8 @@ class DatabaseHelper {
       ''');
     });
   }
+
+  // Insert Note
   Future<void> insertNote(String content) async {
     final db = await database;
     await db.insert('notes', {'content': content},
