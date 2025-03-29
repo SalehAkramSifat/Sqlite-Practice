@@ -31,5 +31,12 @@ class DatabaseHelper {
         conflictAlgorithm: ConflictAlgorithm.replace);
     print('Inserted Note: $content');
   }
+  Future<List<Map<String, dynamic>>> getNotes() async {
+    final db = await database;
+    var result = await db.query('notes');
+    print('Database Notes: $result');
+    return result;
+  }
+
 
 }
