@@ -25,4 +25,11 @@ class DatabaseHelper {
       ''');
     });
   }
+  Future<void> insertNote(String content) async {
+    final db = await database;
+    await db.insert('notes', {'content': content},
+        conflictAlgorithm: ConflictAlgorithm.replace);
+    print('Inserted Note: $content');
+  }
+
 }
